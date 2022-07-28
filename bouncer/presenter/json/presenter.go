@@ -11,7 +11,7 @@ import (
 type jsonResult struct {
 	Pkg string `json:"package"`
 	URL string `json:"url"`
-	//Path     string   `json:"local-path"`
+	// Path     string   `json:"local-path"`
 	Name     string   `json:"name"`
 	Type     string   `json:"type"`
 	Warnings []string `json:"warnings,omitempty"`

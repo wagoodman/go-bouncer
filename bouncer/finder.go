@@ -28,7 +28,7 @@ func NewLicenseFinder(paths, gitRemotes []string, threshold float64) LicenseFind
 	}
 }
 
-func licenseDbArchiveFetcher() ([]byte, error) {
+func licenseDBArchiveFetcher() ([]byte, error) {
 	f, err := pkger.Open("/assets/licenses.db")
 	if err != nil {
 		return nil, fmt.Errorf("unable to open license.db: %w", err)
@@ -43,7 +43,7 @@ func (r LicenseFinder) Find() (<-chan LicenseResult, error) {
 	flag.Parse()
 	_ = flag.Lookup("logtostderr").Value.Set("false")
 
-	dbFetcherOpt := licenseclassifier.ArchiveFunc(licenseDbArchiveFetcher)
+	dbFetcherOpt := licenseclassifier.ArchiveFunc(licenseDBArchiveFetcher)
 	classifier, err := licenses.NewClassifier(r.ConfidenceThreshold, dbFetcherOpt)
 	if err != nil {
 		return nil, err
