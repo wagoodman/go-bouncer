@@ -66,6 +66,7 @@ get_binaries() {
     linux/amd64) BINARIES="bouncer" ;;
     darwin/arm64) BINARIES="bouncer" ;;
     linux/arm64) BINARIES="bouncer" ;;
+    windows/amd64) BINARIES="bouncer.exe" ;;
     *)
       log_crit "platform $PLATFORM is not supported.  Make sure this script is up-to-date and file request at https://github.com/${PREFIX}/issues/new"
       exit 1
